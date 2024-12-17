@@ -20,8 +20,7 @@
 
 2. Create a `.env` file and generate a secret key for Payload:
    ```shell
-   cp packages/shared/.env.example packages/shared/.env
-   sed -i -e "s/YOUR_SECRET_HERE/$(openssl rand -hex 32)/g" packages/shared/.env
+   cat packages/shared/.env.example | sed "s/YOUR_SECRET_HERE/$(openssl rand -hex 32)/g" > packages/shared/.env
    ```
 
 3. Start a database container:
